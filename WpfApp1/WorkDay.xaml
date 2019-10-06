@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="WpfApp1.WorkDay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dg="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:WpfApp1"
+             mc:Ignorable="d" d:DesignWidth="330" Height="200"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="#FFDADADA"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid Margin="0,0,26,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto" MinWidth="37"/>
+            <ColumnDefinition Width="auto" MinWidth="85"/>
+            <ColumnDefinition Width="auto" MinWidth="78"/>
+
+        </Grid.ColumnDefinitions>
+        <Label Content="work" Grid.Row="0" Grid.Column="1" RenderTransformOrigin="0.316,0.537"/>
+        <Label Content="    start" Grid.Row="0" Grid.Column="2"/>
+        <Label Content="   end" Grid.Row="0" Grid.Column="3"/>
+
+        <Label Content="Sunday" Grid.Row="1" Grid.Column="0"/>
+        <Label Content="Monday" Grid.Row="2" Grid.Column="0"/>
+        <Label Content="Tuseday" Grid.Row="3" Grid.Column="0"/>
+        <Label Content="Wendnesday" Grid.Row="4" Grid.Column="0"/>
+        <Label Content="Thurstday" Grid.Row="5" Grid.Column="0"/>
+        <Label Content="Friday" Grid.Row="6" Grid.Column="0"/>
+
+
+
+        <CheckBox x:Name="SundayCheckBox"  Grid.Row="1" Grid.Column="1" />
+        <CheckBox x:Name="MondayCheckBox" Grid.Row="2" Grid.Column="1"/>
+        <CheckBox x:Name="TusedayCheckBox" Grid.Row="3" Grid.Column="1"/>
+        <CheckBox x:Name="WendnesdayCheckBox" Grid.Row="4" Grid.Column="1"/>
+        <CheckBox x:Name="ThurstdayCheckBox" Grid.Row="5" Grid.Column="1"/>
+        <CheckBox x:Name="FridayCheckBox" Grid.Row="6" Grid.Column="1"/>
+
+        <dg:TimePicker  Background="#FFDADADA"  x:Name="a0"  Grid.Row="1" Grid.Column="2" IsEnabled="{Binding ElementName=SundayCheckBox,Path=IsChecked}" />
+        <dg:TimePicker   Background="#FFDADADA" x:Name="b0" Grid.Row="2" Grid.Column="2" IsEnabled="{Binding ElementName=MondayCheckBox,Path=IsChecked}"/>
+        <dg:TimePicker  Background="#FFDADADA"  x:Name="c0" Grid.Row="3" Grid.Column="2" IsEnabled="{Binding ElementName=TusedayCheckBox,Path=IsChecked}"/>
+        <dg:TimePicker  Background="#FFDADADA"  x:Name="d0" Grid.Row="4" Grid.Column="2" IsEnabled="{Binding ElementName=WendnesdayCheckBox,Path=IsChecked}"/>
+        <dg:TimePicker  Background="#FFDADADA"  x:Name="e0" Grid.Row="5" Grid.Column="2" IsEnabled="{Binding ElementName=ThurstdayCheckBox,Path=IsChecked}"/>
+        <dg:TimePicker  Background="#FFDADADA"  x:Name="f0"  Grid.Row="6" Grid.Column="2" IsEnabled="{Binding ElementName=FridayCheckBox,Path=IsChecked}"/>
+
+
+        <dg:TimePicker  Background="#FFDADADA" x:Name="a1" Grid.Row="1" Grid.Column="3" IsEnabled="{Binding ElementName=SundayCheckBox,Path=IsChecked}" Margin="5,0,-13,0"  />
+        <dg:TimePicker  Background="#FFDADADA" x:Name="b1"  Grid.Row="2" Grid.Column="3" IsEnabled="{Binding ElementName=MondayCheckBox,Path=IsChecked}" Margin="5,0,-13,1" HorizontalAlignment="Left" Width="92"/>
+        <dg:TimePicker  Background="#FFDADADA" x:Name="c1" Grid.Row="3" Grid.Column="3" IsEnabled="{Binding ElementName=TusedayCheckBox,Path=IsChecked}" Margin="5,0,-12,0"/>
+        <dg:TimePicker  Background="#FFDADADA" x:Name="d1"  Grid.Row="4" Grid.Column="3" IsEnabled="{Binding ElementName=WendnesdayCheckBox,Path=IsChecked}" Margin="5,0,-12,0"/>
+        <dg:TimePicker  Background="#FFDADADA" x:Name="e1" Grid.Row="5" Grid.Column="3" IsEnabled="{Binding ElementName=ThurstdayCheckBox,Path=IsChecked}" Height="27" VerticalAlignment="Top" Margin="5,0,-12,0"/>
+        <dg:TimePicker  Background="#FFDADADA" x:Name="f1" Grid.Row="6" Grid.Column="3" IsEnabled="{Binding ElementName=FridayCheckBox,Path=IsChecked}" Margin="5,0,-12,0"/>
+
+
+
+    </Grid>
+</UserControl>

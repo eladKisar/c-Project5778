@@ -1,0 +1,109 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+         Height="450" Width="820"  Icon="image/baby_mother.png" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="Gray"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        >
+    <!--WindowState="Maximized"-->
+    <Window.Resources>
+
+       
+       
+    </Window.Resources>
+    <Grid x:Name="grid_all" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="child_Button" Content="child" Grid.Row="0" Grid.Column="0" Margin="3,24,3,107" 
+                    Click="child_Button_Click"  FontSize="30" Visibility="Visible"
+                    FontWeight="Bold"  Foreground="#FF18191D"   BorderThickness="3"
+                    BorderBrush="#FF5BCD0C"  Height="Auto" >
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="gray" Offset="1"/>
+                    <GradientStop Color="#FFCAA7EE"/>
+                    <GradientStop Color="#FF903EE2" Offset="0.96"/>
+                </RadialGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="nanny_Button" BorderThickness="3"   
+                    Content="nanny"  Grid.Row="0" Grid.Column="1" Margin="3,24,3,107" Click="nanny_Button_Click" 
+                    FontSize="30" FontWeight="Bold" Foreground="#FF18191D" 
+                    BorderBrush="#FF5BCD0C" Height="Auto" >
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="gray" Offset="1"/>
+                    <GradientStop Color="#FFCAA7EE"/>
+                    <GradientStop Color="#FF903EE2" Offset="0.96"/>
+                </RadialGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="mother_Button"  Content="mother" Grid.Row="0"  Grid.Column="2" 
+                    Margin="3,24,3,107" Click="mother_Button_Click" 
+                    BorderThickness="3" FontSize="30"
+                    FontWeight="Bold" Foreground="#FF18191D"  BorderBrush="#FF5BCD0C" Height="Auto" >
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="gray" Offset="1"/>
+                    <GradientStop Color="#FFCAA7EE"/>
+                    <GradientStop Color="#FF903EE2" Offset="0.96"/>
+                </RadialGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button  x:Name="contract_Button" Content="contract" Grid.Row="0" Grid.Column="3" Margin="3,24,3,107" 
+                     Click="contract_Button_Click" FontSize="30" 
+                     FontWeight="Bold" Foreground="#FF18191D"  BorderBrush="#FF5BCD0C" BorderThickness="3" Height="Auto" >
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="gray" Offset="1"/>
+                    <GradientStop Color="#FFCAA7EE"/>
+                    <GradientStop Color="#FF903EE2" Offset="0.96"/>
+                </RadialGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button  x:Name="Grpubing_Button" Content="Grouping" Grid.Row="0" Grid.Column="4" Margin="3,24,3,107" 
+                     Click="Grpubing_Button_Click" FontSize="30" 
+                     FontWeight="Bold" Foreground="#FF18191D"  BorderBrush="#FF5BCD0C" BorderThickness="3" Height="Auto" >
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="gray" Offset="1"/>
+                    <GradientStop Color="#FFCAA7EE"/>
+                    <GradientStop Color="#FF903EE2" Offset="0.96"/>
+                </RadialGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <ContentControl x:Name="contentControl" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,108,0,0"/>
+        <Image Source="image/baby_mother.png" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+
+
+
+
+
+    </Grid>
+
+</Window>

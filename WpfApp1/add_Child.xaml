@@ -1,0 +1,142 @@
+﻿<Window x:Class="WpfApp1.add_Child"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="add_Child" Height="350" Width="350"
+         Background="#FFDADADA"
+         Validation.Error="validation_Error"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Window.Resources>
+        <local:NotBooleanToVisibilityConverter  x:Key="notBooleanToVisibilityConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="label" Content="Add New Child" FontSize="30" Margin="0"/>
+        <Button  x:Name="addButton" Content="Add" Grid.Row="1"  FontSize="30" Margin="68,182,84,25"
+                 
+                 Click="addButton_Click" Height="Auto">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=NameTaxtBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=idChildTaxtBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=idMotherTaxtBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=DatePicker, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+         
+         
+       
+        <Grid x:Name="grid1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--<TextBlock Margin="10"  Text=" Last name" TextAlignment="Left" VerticalAlignment="Center"
+                       FontSize="15" Grid.Row="3" Foreground="{StaticResource brushWatermarkForeground}" 
+                       Background="{StaticResource brushWatermarkBackground}" Height="25"
+                       Visibility="{Binding ElementName=lastNameTextBox,  
+                Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <TextBox x:Name="lastNameTextBox"  Margin="10"  VerticalContentAlignment="Center"
+                     BorderBrush="{StaticResource brushWatermarkBorder}" 
+                      Grid.Row="3" Background="Transparent" 
+                     Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+                    Height="25"/>-->
+            <Label Content="Fitst Name" FontSize="13" FontStyle="Italic"  Grid.Row="0" Grid.Column="0"/>
+
+            <TextBox x:Name="NameTaxtBox" Grid.Row="0" HorizontalAlignment="Left" Height="24"
+                    materialDesign:HintAssist.Hint="Enter first name"
+                     Margin="5,4,-41,0"  TextWrapping="Wrap"   Text="{Binding _FitstName,Mode=TwoWay,
+                ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true }" 
+                     VerticalAlignment="Top" Width="165" Grid.Column="1" 
+                 
+                     />
+            <Label Content="Id of Child" Grid.Row="1" Grid.Column="0" FontSize="13" FontStyle="Italic" />
+            <TextBox x:Name="idChildTaxtBox" Grid.Column="1" Grid.Row="1"  Height="23" 
+                     Margin="3,3,-43,0"  TextWrapping="Wrap"   materialDesign:HintAssist.Hint="Enter id of child"  
+                     Text="{Binding _IdOfChild,Mode=TwoWay,
+                ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true }" 
+                     VerticalAlignment="Top" Width="167" 
+                  
+                     />
+            <Label Content="Id of Mother" Grid.Row="2" Grid.Column="0" FontSize="13" FontStyle="Italic" />
+            <TextBox x:Name="idMotherTaxtBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,-43,0"  TextWrapping="Wrap"   materialDesign:HintAssist.Hint="Enter id of mother"   Text="{Binding _IdOfMather ,Mode=TwoWay,
+                ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true }" 
+                     VerticalAlignment="Top" Width="167" 
+                  
+                     />
+            <Label Content="Date Of Birth" Grid.Row="3" Grid.Column="0" FontSize="13" FontStyle="Italic" />
+            <DatePicker x:Name="DatePicker" Grid.Column="1" Grid.Row="3" SelectedDate="{Binding _DateOfBirth,
+                   ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                  DisplayDate="2000-01-01" DisplayDateStart="2000-01-01"     Margin="0,0,10,0" />
+            <Label Content="Disabilities" Grid.Row="4" Grid.Column="0"/>
+            <CheckBox x:Name="DisabilitiesCheckBox" Content="" Grid.Row="4" Grid.Column="1" 
+                      IsChecked="{Binding _Disabilities,Mode=TwoWay,
+                ValidatesOnDataErrors=True,
+                NotifyOnValidationError=True, ValidatesOnExceptions=true }"  />
+
+            <Label Content="Type Of Disabilities" Grid.Row="5" Grid.Column="0" FontSize="13" FontStyle="Italic" />
+            <TextBox x:Name="TypeOfDisabilitiesTaxtBox" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,-43,0"  TextWrapping="Wrap"
+                      materialDesign:HintAssist.Hint="Enter type of disabilitie" Text="{Binding _TypeOfDisabilities ,Mode=TwoWay 
+                       ,UpdateSourceTrigger=Explicit}"
+                     IsEnabled="{Binding ElementName= DisabilitiesCheckBox ,Path=IsChecked,
+                Converter={StaticResource notBooleanToVisibilityConverter}}"
+                     
+                     
+                     VerticalAlignment="Top" Width="167" 
+                 
+                     />
+
+
+
+
+
+
+
+
+
+        </Grid>
+
+
+
+
+
+
+    </Grid>
+
+</Window>

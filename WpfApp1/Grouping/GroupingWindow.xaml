@@ -1,0 +1,67 @@
+﻿<Window x:Class="WpfApp1.Grouping.GroupingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Grouping"
+        mc:Ignorable="d"
+        Title="GroupingWindow" Height="650" Width="1110"
+           Background="#FFDADADA"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+     
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="135*"/>
+            <RowDefinition Height="284*"/>
+
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Label Content="Grouping By" FontSize="30"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ContractByDistanceButton" Content="   Contract&#xa;By Distance" HorizontalAlignment="Center"
+                   FontSize="13"     VerticalAlignment="Bottom" HorizontalContentAlignment="center" Margin="2,0,8,0" 
+                        Width="139"
+                         Click="ContractByDistanceButton_Click" Height="52"/>
+                <Button x:Name="NannyWithExpButton" Content="       Nanny&#xa;With Experience" 
+                      FontSize="13"    HorizontalAlignment="Center"   VerticalAlignment="Bottom" HorizontalContentAlignment="center" 
+                        Margin="4,0,6,-1" Width="139"  Click="NannyWithExpButton_Click" Height="52" Grid.Column="1"/>
+                <Button x:Name="ChildrenByAgeMinButton" Grid.Column="2" Content="Nanny by Children&#xa;    Minimal Age"
+                      FontSize="13"    HorizontalAlignment="Center"   VerticalAlignment="Bottom" HorizontalContentAlignment="center"
+                        Margin="0,0,4,-1" Width="144" Click="ChildrenByAgeMinButton_Click" Height="52" RenderTransformOrigin="0.441,0.683"/>
+                <Button x:Name="ChildrenByAgeMaxButton" Grid.Column="3" Content="Nanny by Children&#xa;    Maximal Age" 
+                    FontSize="13"      HorizontalAlignment="Center"   VerticalAlignment="Bottom" HorizontalContentAlignment="center" 
+                        Margin="10,0,18,0" Width="155" Click="ChildrenByAgeMaxButton_Click" Height="52"/>
+                <Button x:Name="ChildrenWithoutButton" Grid.Column="4" Content="     Children&#xa;Without Nanny" 
+                    FontSize="13"      HorizontalAlignment="Center"   VerticalAlignment="Bottom" HorizontalContentAlignment="center" 
+                        Margin="24,0,8,0" Width="152" Click="ChildrenWithoutButton_Click" Height="51"/>
+                <Button x:Name="ChildrenWithSpecButton" Grid.Column="5" Content="        Children&#xa;With Special Needs" 
+                   FontSize="13"       HorizontalAlignment="Center"   VerticalAlignment="Bottom" 
+                        HorizontalContentAlignment="center" Margin="10,0,17,0" Width="156" 
+                        Click="ChildrenWithSpecButton_Click" Height="52"/>
+
+            </Grid>
+
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <ContentControl x:Name="page" Margin="0,78,0,25"/>
+        </Grid>
+
+
+
+    </Grid>
+</Window>

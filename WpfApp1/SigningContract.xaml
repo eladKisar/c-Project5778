@@ -1,0 +1,115 @@
+﻿<Window x:Class="WpfApp1.SigningContract"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="SigningContract" Height="550" Width="450"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="#FFDADADA"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="94*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="374*"/>
+            <RowDefinition Height="51*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Contract Signing " FontSize="30" Margin="0,0,0,43"/>
+        <materialDesign:PackIcon x:Name="SaveIcon" Kind="ContentSave" Grid.Row="3" Height="41" Width="68" 
+                              RenderTransformOrigin="0.912,0.672" Margin="184,5,0,0"/>
+
+        <Button Grid.Row="3" x:Name="SaveButton" Content="Save"   FontSize="30" Margin="158,0,156,10" 
+           Click="SaveButton_Click"  Height="Auto" Background="{x:Null}"  />
+
+
+        <Grid x:Name="grid1" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Id Of Mother" Grid.Column="0" Grid.Row="0" FontSize="13" FontStyle="Italic"
+                   HorizontalAlignment="Right" Width="89" Margin="0,5,82,0"/>
+            <TextBox x:Name="IdOfMotherTextBlock" IsEnabled="False" Grid.Column="1" Grid.Row="0" FontSize="13"
+                       FontStyle="Italic" Margin="0,10,132,0"   Text="{Binding _IdOfMother}"  Background="#FFB9B6B6" />
+
+            <Label Content="Id Of Nanny" Grid.Column="0" Grid.Row="1" FontSize="13" FontStyle="Italic"
+                   HorizontalAlignment="Right" Width="89" Margin="0,6,82,0"/>
+            <TextBlock x:Name="IdOfNannyTextBlock" IsEnabled="False" Grid.Column="1" Grid.Row="1" Margin="0,10,132,0"
+                    Background="#FFB9B6B6"    Text="{Binding _IdOfNanny}"/>
+
+            <Label Content="Id Of Child" Grid.Column="0" Grid.Row="2" FontSize="13" FontStyle="Italic"
+                   HorizontalAlignment="Right" Width="89" Margin="0,0,82,0"/>
+
+            <ComboBox x:Name="IdOfChildCOmboBox" Grid.Column="1" Grid.Row="2" Height= "26"
+                    Background= "Gray" Foreground= "Purple"
+                      materialDesign:HintAssist.Hint= "   Select item"
+                      FontSize="15"
+                      VerticalAlignment= "Top" 
+                      SelectedValue="{Binding _IdOfChild}" Margin="0,5,10,0" Grid.RowSpan="2" SelectionChanged="IdOfChildCOmboBox_SelectionChanged" />
+
+            <Label Content="Start Date" Grid.Row="3" Grid.Column="0" FontSize="13" FontStyle="Italic" Margin="50,0,82,0" />
+            <DatePicker x:Name="startDatePicker" Grid.Column="1" Grid.Row="3" 
+                         SelectedDate="{Binding _StartDate,Mode=TwoWay
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                     
+                      DisplayDate="2000-01-01" DisplayDateStart="2000-01-01" Margin="0,0,10,0" />
+
+            <Label Content="End Date" Grid.Row="4" Grid.Column="0" FontSize="13" FontStyle="Italic" Margin="50,0,82,0" />
+            <DatePicker x:Name="endDatePicker" Grid.Column="1" Grid.Row="4"
+                            SelectedDate="{Binding _EndDate,Mode=TwoWay
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                  
+                       DisplayDate="2018-01-01" DisplayDateStart="2018-01-01" Margin="0,0,10,0" />
+
+            <Label Content="Saalry Per Hour" Grid.Column="0" Grid.Row=" 5" FontSize="13" FontStyle="Italic" Margin="50,0,66,0"/>
+            <CheckBox x:Name="PerHourCheckBox" Grid.Column="1" Grid.Row=" 5" IsEnabled="False"
+                   Background="#FFB9B6B6"     IsChecked="{Binding _ContractHourlyPayment}" BorderBrush="#FFEC0C49" Margin="0,0,70,0"/>
+
+            <Label Content="Sal Per Mounth" Grid.Column="0" Grid.Row="6" FontSize="13" FontStyle="Italic" Margin="50,5,66,0"/>
+            <TextBlock x:Name="SalPErMounthTextBlock"  Grid.Column="1" Grid.Row="6"
+                        Background="#FFB9B6B6" Text="{Binding _SallryPerMonth}" Margin="0,10,132,0" Height="28" VerticalAlignment="Top"/>
+
+            <Label Content="Sal Per Hour" Grid.Column="0" Grid.Row="7" FontSize="13" FontStyle="Italic" Margin="50,5,66,0"/>
+            <TextBlock x:Name="SalPErHourTextBlock"  Grid.Column="1" Grid.Row="7"
+                        Background="#FFB9B6B6" Text="{Binding _SallryPerHour}" Margin="0,10,132,0"/>
+
+            <Label Content="Final Monthly Wages" Grid.Column="0" Grid.Row="8" FontSize="13" FontStyle="Italic" 
+                   Margin="50,5,41,0"/>
+            <TextBlock x:Name="_FinalMonthlyWagesCheckBox" Grid.Column="1" Grid.Row="8"
+                   Background="#FFB9B6B6"     Text="{Binding _FinalMonthlyWages}" Margin="0,10,132,0"/>
+
+
+            <Label Content="Was Mitting" Grid.Column="0" Grid.Row="9" FontSize="13" FontStyle="Italic" Margin="50,0,66,0"/>
+            <CheckBox x:Name="_WasMittingCheckBox" Grid.Column="1" Grid.Row="9"
+                      IsChecked="{Binding _WasMitting}"/>
+
+            <Label Content="Signed Contract" Grid.Column="0" Grid.Row="10" FontSize="13" FontStyle="Italic" Margin="50,0,66,0"/>
+            <CheckBox x:Name="_SignedContractCheckBox" Grid.Column="1" Grid.Row="10"
+                      IsChecked="{Binding _SignedContract}"/>
+
+
+        </Grid>
+    </Grid>
+
+</Window>

@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfApp1.Remove_Child"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Remove_Child" Height="350" Width="350"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+     
+        FontFamily="{DynamicResource MaterialDesignFont}"
+           Background="#FFDADADA">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label" Content="Remove Child" FontSize="30" Margin="0"/>
+        <Button x:Name="RemoveButton" Content="Remove" Grid.Row="1"  FontSize="30" Margin="60,171,80,0" Click="removeButton_Click" Height="42" VerticalAlignment="Top" />
+
+
+        <Grid x:Name="grid1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Select the child to delete from the list or enter the ID number" Grid.Row="0" Grid.Column="0" 
+                   Grid.ColumnSpan="2" FontSize="10"/>
+            <Label Content="child list" Grid.Row="1" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <ComboBox x:Name="RemoveChildComboBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Height="28" 
+                     Margin="3,3,-43,0"  materialDesign:HintAssist.Hint="   select item"
+                     VerticalAlignment="Top" Width="167" SelectionChanged="RemoveChildComboBox_SelectionChanged"/>
+            <Label Content="Id of child" Grid.Row="2" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <TextBox x:Name="idChildTaxtBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,-43,0"  TextWrapping="Wrap"  materialDesign:HintAssist.Hint="  Enter id of child"
+                     VerticalAlignment="Top" Width="167" TextChanged="idChildTaxtBox_TextChanged" />
+        </Grid>
+    </Grid>
+
+
+</Window>

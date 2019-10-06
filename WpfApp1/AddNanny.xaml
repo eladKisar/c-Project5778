@@ -1,0 +1,160 @@
+﻿<Window x:Class="WpfApp1.AddNanny"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="AddNanny" Height="570" Width="900"   Validation.Error="validation_Error"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+       Background="#FFDADADA"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!--<materialDesign:PackIcon Kind="Account"/>-->
+        <Label x:Name="label" Content="Add New Nanny" FontSize="30" Margin="0"/>
+        <Button x:Name="addButton" Content="Add" Grid.Row="1"  FontSize="30" Margin="223,419,238,10" Click="addButton_Click" Height="Auto" />
+        <Grid x:Name="grid1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" MinWidth="185"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Label x:Name="FirstNam_label" Content="Fitst Name" Grid.Row="0" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <TextBox x:Name="FirstNameTaxtBox" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,0,0"  TextWrapping="Wrap"   Text="{Binding _FitstName,Mode=TwoWay
+                , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}" 
+                     VerticalAlignment="Top" Width="167" 
+               
+                     />
+            <Label x:Name="lasttNam_label" Content="Last Name" Grid.Row="1" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <TextBox x:Name="lasttNameTaxtBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,0,0"  TextWrapping="Wrap"   Text="{Binding _LastName,Mode=TwoWay
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}" 
+                     VerticalAlignment="Top" Width="167" />
+            <Label Content="Id of Nanny" Grid.Row="2" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <TextBox x:Name="idNannyTaxtBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,0,0"  TextWrapping="Wrap"   Text="{Binding _id ,Mode=TwoWay
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}" 
+                     VerticalAlignment="Top" Width="167" />
+            <Label Content="Date Of Birth" Grid.Row="3" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <DatePicker x:Name="DatePicker" Grid.Column="1" Grid.Row="3"  SelectedDate="{Binding _DateOfBirth,Mode=TwoWay
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                        DisplayDate="1960-01-01" DisplayDateStart="1960-01-01" Margin="0,0,16,0" />
+
+            <Label Content="Number Fon" Grid.Row="4" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <ComboBox x:Name="numberFonComboBox" Grid.Column="1" Grid.Row="4" Margin="0,3,136,2" 
+                    SelectionChanged="numberFonComboBox_SelectionChanged" />
+
+            <TextBox x:Name="FonNannyTaxtBox" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Height="22" 
+                     Margin="49,10,0,0"  TextWrapping="Wrap"   Text="{Binding _NumberOfphone,Mode=TwoWay,UpdateSourceTrigger=Explicit
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}" 
+                     VerticalAlignment="Top" Width="123" IsEnabled="False" />
+            <Label Content="Address" Grid.Row="5" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            
+            <local:GoogleMapsUserControl  Grid.Column="1" Grid.Row="5" Margin="0,0,16,0"  x:Name="AreaAddresControl"
+                                      Background="#FFDADADA"      Text="{Binding  _Address ,Mode=OneWayToSource
+                  ,  ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true }"/>
+
+            <Label Content="Max child" Grid.Row="6" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <TextBox x:Name="MaxChildTaxtBox" Grid.Column="1" Grid.Row="6"
+                     HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,0,0"  TextWrapping="Wrap"   
+                     Text="{Binding _MaxChild ,Mode=TwoWay
+                , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                     VerticalAlignment="Top" Width="167" 
+                  />
+            <Label Content="Max age" Grid.Row="7" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <TextBox x:Name="MaxAgeTaxtBox" Grid.Column="1" Grid.Row="7"
+                     HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,0,0"  TextWrapping="Wrap"   
+                     Text="{Binding _MaxAge ,Mode=TwoWay
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                     VerticalAlignment="Top" Width="167" 
+                  />
+            <Label Content="Min Age" Grid.Row="8" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <TextBox x:Name="MinChildTaxtBox" Grid.Column="1" Grid.Row="8"
+                     HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,0,0"  TextWrapping="Wrap"   
+                     Text="{Binding _MinAge ,Mode=TwoWay
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                     VerticalAlignment="Top" Width="167" 
+                  />
+            <Label Content="Elevator " Grid.Row="9" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <CheckBox x:Name="ElevatorCheckBox" Content="" Grid.Row="9" Grid.Column="1" 
+                      IsChecked="{Binding _Elevators,Mode=TwoWay}"  />
+            <Label Content="Hourly Payment " Grid.Row="10" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <CheckBox x:Name="HourlyPaymentCheckBox" Content="" Grid.Row="10" Grid.Column="1" 
+                  Click="HourlyPaymentCheckBox_Click"    IsChecked="{Binding _HourlyPayment,Mode=TwoWay}"  />
+            <Label Content="Hourly Wage " Grid.Row="11" Grid.Column="0"/>
+            <TextBox x:Name="HourlyWageTaxtBox" Grid.Column="1" Grid.Row="11" 
+                     HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,0,0"  TextWrapping="Wrap"   
+                     Text="{Binding _HourlyWage ,Mode=TwoWay
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                     IsEnabled="{Binding ElementName= HourlyPaymentCheckBox ,Path=IsChecked
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                     VerticalAlignment="Top" Width="167" 
+                 
+                     />
+            <Label Content="Month Wage " Grid.Row="12" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <TextBox x:Name="MonthWageTaxtBox" Grid.Column="1" Grid.Row="12" 
+                     HorizontalAlignment="Left" Height="23" 
+                     Margin="3,3,0,0"  TextWrapping="Wrap"   
+                     Text="{Binding _MonthWage ,Mode=TwoWay
+                 , ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnExceptions=true}"
+                    VerticalAlignment="Top" Width="167" 
+                 
+                     />
+            <Label Content="Vacation Kind " Grid.Row="13" Grid.Column="0" FontSize="13" FontStyle="Italic"/>
+            <CheckBox x:Name="acationKindCheckBox" Content="" Grid.Row="13"
+                      Grid.Column="1" 
+                      IsChecked="{Binding _VacationKind,Mode=TwoWay}"  />
+            <Grid Grid.RowSpan="15" Grid.Column="2" Margin="1,0,-307,-16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <local:WorkDay x:Name="userWorkHours"  />
+                <Image Grid.Row="1" Source="image/download_1.png" />
+            </Grid>
+
+
+
+
+        </Grid>
+
+
+
+
+
+    </Grid>
+
+
+</Window>
